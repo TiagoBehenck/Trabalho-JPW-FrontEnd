@@ -1,0 +1,44 @@
+.large-box {
+    position: relative;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    height: auto;
+    width: auto;
+}
+
+  .large-box-input {
+    margin: 10px auto;
+    padding: 16px;
+    border-radius: 8px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tab-icon {
+    margin-right: 8px;
+  }
+
+  .form {
+    width: 500px;
+    padding: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mat-header-cell {
+    text-align: center;  
+  }
+
+  #buttonSubmit {
+    padding: 10px;
+  }
