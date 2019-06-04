@@ -1,11 +1,25 @@
 import { AdicionarComponent } from './adicionar/adicionar.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AnimalComponent } from './animal/animal.component';
+import { ProprietarioComponent } from './proprietario/proprietario.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: AnimalComponent
+  },
+  {
     path: 'adicionar',
     component: AdicionarComponent
+  },
+  {
+    path: 'animal',
+    component: AnimalComponent
+  },
+  {
+    path: 'proprietario',
+    component: ProprietarioComponent
   }
 ];
 

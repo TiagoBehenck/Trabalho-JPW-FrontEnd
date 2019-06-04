@@ -57,9 +57,9 @@ export class AppComponent {
 
   navigationTo(tab) {
     if (tab.index === 0) {
-      this.router.navigate(['']);
+      this.router.navigate(['animal']);
     } else if (tab.index === 1) {
-      this.router.navigate(['']);
+      this.router.navigate(['proprietario']);
     } else {
       this.router.navigate(['']);
     }

@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+  }
+
+  .large-box {
+    position: relative;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    height: auto;
+    width: auto;
+  }
+
+  .mat-header-cell, td {
+    text-align: center;  
+  }

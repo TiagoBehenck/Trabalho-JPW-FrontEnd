@@ -6,20 +6,26 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdicionarComponent } from './adicionar/adicionar.component';
+import { AnimalComponent } from './animal/animal.component';
+import { ProprietarioComponent } from './proprietario/proprietario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdicionarComponent
+    AdicionarComponent,
+    AnimalComponent,
+    ProprietarioComponent
   ],
   imports: [
     BrowserModule,
@@ -31,12 +37,12 @@ import { AdicionarComponent } from './adicionar/adicionar.component';
     MatListModule,
     MatTabsModule,
     MatGridListModule,
-    MatPaginatorModule,
     MatInputModule,
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
