@@ -1,5 +1,39 @@
-<div class="body">
-  <h1>
-      Navegando! 
-  </h1>
-</div>
+<div class="large-box-input mat-elevation-z4">
+    <form class="form">
+
+      <h3 class="titleInput">ANIMAL</h3>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" [formControl]="validatorName">
+        <mat-error *ngIf="validatorName.hasError('required')">
+          Nome é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Raça" [formControl]="validatorRaca">
+        <mat-error *ngIf="validatorRaca.hasError('required')">
+          Raça é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Idade" [formControl]="validatorAge">
+        <mat-error *ngIf="validatorAge.hasError('required')">
+          Idade é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Data de Nascimento" [formControl]="validatorDateBirth">
+        <mat-error *ngIf="validatorDateBirth.hasError('required')">
+          Data de nascimento é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="buttons">
+        <button mat-raised-button color="primary" id="buttonSubmit" (click)="add()">ADICIONAR</button>
+        <button mat-raised-button color="warn" id="buttonSubmit" (click)=cancel()>CANCELAR</button>
+      </div>
+    </form>
+  </div>

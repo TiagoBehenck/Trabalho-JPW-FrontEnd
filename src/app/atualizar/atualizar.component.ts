@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-adicionar',
-  templateUrl: './adicionar.component.html',
-  styleUrls: ['./adicionar.component.css']
+  selector: 'app-atualizar',
+  templateUrl: './atualizar.component.html',
+  styleUrls: ['./atualizar.component.css']
 })
-export class AdicionarComponent implements OnInit {
+export class AtualizarComponent implements OnInit {
 
   constructor(private router: Router) { }
 
@@ -19,16 +18,14 @@ export class AdicionarComponent implements OnInit {
   validatorAge = new FormControl('', [Validators.required]);
   validatorDateBirth = new FormControl('', [Validators.required]);
 
-  add() {
-    alert('Animal adicionado com sucesso!');
-    this.router.navigate(['animal']);
-  }
 
   update() {
-    alert('Animal adicionado com sucesso!');
+    alert('Atualizado com sucesso!');
+    this.router.navigate(['animal']);
   }
 
   cancel() {
     this.router.navigate(['animal']);
   }
 }
+

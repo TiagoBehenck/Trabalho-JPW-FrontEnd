@@ -10,7 +10,16 @@
     height: auto;
     width: auto;
   }
-  
+
   .mat-header-cell, td {
-    text-align: center;  
+    text-align: center;
+  }
+
+  #icon-add {
+    margin-right: 10px;
+  }
+
+  #button-relatorio {
+    float: right;
+    margin-right: 15px;
   }

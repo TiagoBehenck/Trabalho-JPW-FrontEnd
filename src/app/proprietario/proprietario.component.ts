@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProprietarioComponent implements OnInit {
 
-  displayedColumns: string[] = ['_id', 'nome', 'cpf', 'end', 'telefone', 'acao'];
+  displayedColumns: string[] = ['_id', 'nome', 'cpf', 'end', 'telefone', 'acao', 'adicionar'];
   dataSource = new MatTableDataSource<any>([]);
 
   public proprietario: Array<{
@@ -19,16 +19,16 @@ export class ProprietarioComponent implements OnInit {
     end: string;
     telefone: string;
   }> = [];
-  
+
 
   constructor(public http: HttpClient) {
     this.loadData();
-   }
+  }
 
-   async loadData() {
-     this.proprietario = (await this.http.get("http://127.0.0.1:8080/api/proprietario").toPromise()) as any;
-     this.dataSource.data = this.proprietario;
-    }
+  async loadData() {
+    this.proprietario = (await this.http.get("http://127.0.0.1:8080/api/proprietario").toPromise()) as any;
+    this.dataSource.data = this.proprietario;
+  }
 
   ngOnInit() {
 

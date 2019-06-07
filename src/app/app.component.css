@@ -1,3 +1,7 @@
+.container {
+  display: flex;
+}
+
 .large-box {
     position: relative;
     margin: 16px;
@@ -5,7 +9,7 @@
     border-radius: 8px;
     height: auto;
     width: auto;
-}
+  }
 
   .large-box-input {
     margin: 10px auto;
@@ -25,7 +29,7 @@
     width: 500px;
     padding: 20px;
   }
-  
+
   .full-width {
     width: 100%;
   }
@@ -36,9 +40,15 @@
   }
 
   .mat-header-cell {
-    text-align: center;  
+    text-align: center;
   }
 
   #buttonSubmit {
     padding: 10px;
+  }
+
+  .input {
+    float: right;
+    margin-left: 1280px;
+    margin-top: 3px;
   }

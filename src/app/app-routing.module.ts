@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AnimalComponent } from './animal/animal.component';
 import { ProprietarioComponent } from './proprietario/proprietario.component';
+import { AtualizarComponent } from './atualizar/atualizar.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'adicionar',
     component: AdicionarComponent
+  },
+  {
+    path: 'atualizar',
+    component: AtualizarComponent
   },
   {
     path: 'animal',

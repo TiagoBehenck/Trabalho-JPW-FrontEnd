@@ -3,6 +3,7 @@
   width: 100%;
 }
 
+
 .large-box {
   position: relative;
   margin: 16px;
@@ -34,6 +35,10 @@
 
 .full-width {
   width: 100%;
+}
+
+.buttons {
+
 }
 
 #buttonSubmit {

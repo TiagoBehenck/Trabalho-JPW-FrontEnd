@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-animal',
@@ -10,8 +11,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AnimalComponent implements OnInit {
 
-  displayedColumns: string[] = ['_id', 'nome', 'raca', 'idade', 'dataNascimento', 'acao'];
+  displayedColumns: string[] = ['_id', 'nome', 'raca', 'idade', 'dataNascimento', 'acao', 'adicionar'];
   dataSource = new MatTableDataSource<any>([]);
+
+  fileUrl;
 
   public animal: Array<{
     _id: string;
@@ -21,17 +24,43 @@ export class AnimalComponent implements OnInit {
     dataNascimento: string;
   }> = [];
 
-  constructor(public http: HttpClient) {
+  constructor(private http: HttpClient,
+              private router: Router,
+              private sanitizer: DomSanitizer) {
     this.loadData();
   }
 
+  // Adicionando um novo animal
+  adicionar() {
+    this.router.navigate(['adicionar']);
+  }
+
+  // Carregar os dados
   async loadData() {
     this.animal = (await this.http.get("http://127.0.0.1:8080/api/animais").toPromise()) as any;
     this.dataSource.data = this.animal;
     // console.log(this.animal);
   }
 
+  // Atualizando as informaçãoes
+  async updateData() {
+   this.router.navigate(['atualizar']);
+  }
+
+  // Excluindo
+  async deleteData(id: string) {
+
+  }
+
+  // Adiconando um animal
+  async createAnimal() {
+
+  }
+
   ngOnInit() {
   }
-}
 
+  report() {
+    alert('Vai baixar!');
+  }
+}
