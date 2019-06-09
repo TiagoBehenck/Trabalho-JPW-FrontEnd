@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -10,18 +10,26 @@ import { Router } from '@angular/router';
 })
 export class AdicionarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  form: FormGroup;
 
-  ngOnInit() { }
+  constructor(private router: Router,
+              private fb: FormBuilder) { }
 
-  validatorName = new FormControl('', [Validators.required]);
-  validatorRaca = new FormControl('', [Validators.required]);
-  validatorAge = new FormControl('', [Validators.required]);
-  validatorDateBirth = new FormControl('', [Validators.required]);
+  ngOnInit() { 
+    this.form = this.fb.group({
+        nome: ['', [Validators.required]],
+        raca: ['', [Validators.required]],
+        idade: ['', [Validators.required]],
+        dataNascimento: ['', [Validators.required]]
+    });
+  }
 
   add() {
-    alert('Animal adicionado com sucesso!');
-    this.router.navigate(['animal']);
+    console.log(this.form.value);
+    if(this.form.valid){
+      alert('Animal adicionado com sucesso!');
+      this.router.navigate(['animal']);
+    }
   }
 
   update() {
