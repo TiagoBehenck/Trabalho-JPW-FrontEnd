@@ -14,10 +14,9 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdicionarComponent } from './adicionar/adicionar.component';
+import { AdicionarComponent } from './adicionar-animal/adicionar.component';
 import { AnimalComponent } from './animal/animal.component';
 import { ProprietarioComponent } from './proprietario/proprietario.component';
-import { AtualizarComponent } from './atualizar/atualizar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { AtualizarComponent } from './atualizar/atualizar.component';
     AdicionarComponent,
     AnimalComponent,
     ProprietarioComponent,
-    AtualizarComponent
   ],
   imports: [
     BrowserModule,

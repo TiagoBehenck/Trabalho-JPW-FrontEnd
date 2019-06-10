@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proprietario',
@@ -21,7 +22,8 @@ export class ProprietarioComponent implements OnInit {
   }> = [];
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,
+              private router: Router) {
     this.loadData();
   }
 
@@ -30,8 +32,26 @@ export class ProprietarioComponent implements OnInit {
     this.dataSource.data = this.proprietario;
   }
 
-  ngOnInit() {
+  ngOnInit() {  }
+
+  adicionar() {
+    this.router.navigate(['adicionar-proprietario']);
+  }
+
+  updateData(id: string) {
 
   }
+
+  // Exclindo o proprietário
+  async deleteData(id: string) {
+    this.http.delete("http://127.0.0.1:8080/api/proprietario/" + id).toPromise();
+    alert('Proprietário excluído com sucesso!');
+    this.loadData();
+  }
+
+  report() {
+    alert('Vai baixar!');
+  }
+
 }
 

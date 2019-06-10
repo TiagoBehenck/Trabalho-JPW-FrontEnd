@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-animal',
@@ -26,41 +25,39 @@ export class AnimalComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private router: Router,
-              private sanitizer: DomSanitizer) {
+              private route: ActivatedRoute) {
     this.loadData();
   }
 
   // Adicionando um novo animal
   adicionar() {
     this.router.navigate(['adicionar']);
+    this.loadData();
   }
 
   // Carregar os dados
   async loadData() {
     this.animal = (await this.http.get("http://127.0.0.1:8080/api/animais").toPromise()) as any;
     this.dataSource.data = this.animal;
-    // console.log(this.animal);
   }
 
   // Atualizando as informaçãoes
-  async updateData() {
-   this.router.navigate(['atualizar']);
+  async updateData(id: string) {
+    // RelativeTo rota relativa a qual URL, rota ativa no momento
+    this.router.navigate(['atualizar', id], { relativeTo: this.route});
   }
 
   // Excluindo
   async deleteData(id: string) {
-
+    this.http.delete("http://127.0.0.1:8080/api/animais/" + id).toPromise();
+    alert('Animal excluído com sucesso!');
+    this.loadData();
   }
 
-  // Adiconando um animal
-  async createAnimal() {
-
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   report() {
     alert('Vai baixar!');
   }
+
 }
