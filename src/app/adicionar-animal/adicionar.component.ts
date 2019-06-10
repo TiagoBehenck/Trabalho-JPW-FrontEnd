@@ -12,6 +12,9 @@ export class AdicionarComponent implements OnInit {
 
   form: FormGroup;
 
+
+  public animal: any = {};
+
   constructor(private router: Router,
               private http: HttpClient,
               private fb: FormBuilder,
@@ -23,16 +26,12 @@ export class AdicionarComponent implements OnInit {
       (params: any) => {
         const id = params['id'];
         console.log(id);
-        const animal$ = this.http.get("http://127.0.0.1:8080/api/animais" + id);
-        // Se inscrever no observable
-        animal$.subscribe(animal => {
-          this.updateForm(animal);
-        });
+        this.animal = (this.http.get("http://127.0.0.1:8080/api/animais/" + id).toPromise()) as any;
+        console.log(this.animal);
       }
     );
 
     this.form = this.fb.group({
-        id: [null],
         nome: ['', [Validators.required]],
         raca: ['', [Validators.required]],
         idade: ['', [Validators.required]],

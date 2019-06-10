@@ -13,8 +13,6 @@ export class AnimalComponent implements OnInit {
   displayedColumns: string[] = ['_id', 'nome', 'raca', 'idade', 'dataNascimento', 'acao', 'adicionar'];
   dataSource = new MatTableDataSource<any>([]);
 
-  fileUrl;
-
   public animal: Array<{
     _id: string;
     nome: string;
@@ -31,7 +29,7 @@ export class AnimalComponent implements OnInit {
 
   // Adicionando um novo animal
   adicionar() {
-    this.router.navigate(['adicionar']);
+    this.router.navigate(['animal/adicionar']);
     this.loadData();
   }
 
@@ -44,7 +42,7 @@ export class AnimalComponent implements OnInit {
   // Atualizando as informaçãoes
   async updateData(id: string) {
     // RelativeTo rota relativa a qual URL, rota ativa no momento
-    this.router.navigate(['atualizar', id], { relativeTo: this.route});
+    this.router.navigate(['animal/atualizar', id]);
   }
 
   // Excluindo
@@ -54,9 +52,12 @@ export class AnimalComponent implements OnInit {
     this.loadData();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loadData();
+  }
 
   report() {
+    this.http.get("http://127.0.0.1:8080/api/animais/report/relatorio").toPromise();
     alert('Vai baixar!');
   }
 

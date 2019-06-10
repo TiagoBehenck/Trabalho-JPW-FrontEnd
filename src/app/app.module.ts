@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { AdicionarComponent } from './adicionar-animal/adicionar.component';
 import { AnimalComponent } from './animal/animal.component';
 import { ProprietarioComponent } from './proprietario/proprietario.component';
+import { AdicionarproprietarioComponent } from './adicionar-proprietario/adicionarproprietario.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProprietarioComponent } from './proprietario/proprietario.component';
     AdicionarComponent,
     AnimalComponent,
     ProprietarioComponent,
+    AdicionarproprietarioComponent,
   ],
   imports: [
     BrowserModule,

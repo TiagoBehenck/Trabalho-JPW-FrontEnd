@@ -32,10 +32,12 @@ export class ProprietarioComponent implements OnInit {
     this.dataSource.data = this.proprietario;
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    this.loadData();
+   }
 
   adicionar() {
-    this.router.navigate(['adicionar-proprietario']);
+    this.router.navigate(['proprietario/adicionar']);
   }
 
   updateData(id: string) {
