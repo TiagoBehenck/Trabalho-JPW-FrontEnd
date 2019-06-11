@@ -57,8 +57,7 @@ export class AnimalComponent implements OnInit {
   }
 
   report() {
-    this.http.get("http://127.0.0.1:8080/api/animais/report/relatorio").toPromise();
-    alert('Vai baixar!');
+    window.open("http://127.0.0.1:8080/api/animais/report/relatorio", "_blank");
   }
 
 }
