@@ -11,10 +11,10 @@ const routes: Routes = [
   { path: 'animal', component: AnimalComponent },
   { path: 'animal/adicionar', component: AdicionarComponent },
   { path: 'animal/atualizar/:id', component: AdicionarComponent },
-  // Proprietárop
+  // Proprietário
   { path: 'proprietario', component: ProprietarioComponent },
   { path: 'proprietario/adicionar', component: AdicionarproprietarioComponent},
-  { path: 'proprietario/atualiar/:id', component: AdicionarproprietarioComponent},
+  { path: 'proprietario/atualizar/:id', component: AdicionarproprietarioComponent},
 ];
 
 @NgModule({

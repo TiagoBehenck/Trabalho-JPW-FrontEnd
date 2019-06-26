@@ -41,7 +41,7 @@ export class ProprietarioComponent implements OnInit {
   }
 
   updateData(id: string) {
-
+    this.router.navigate(['proprietario/atualizar', id]);
   }
 
   // Exclindo o proprietário
@@ -52,7 +52,7 @@ export class ProprietarioComponent implements OnInit {
   }
 
   report() {
-    alert('Vai baixar!');
+    window.open("http://127.0.0.1:8080/api/proprietario/report/relatorio", "_blank");
   }
 
 }

@@ -50,9 +50,6 @@ export class AdicionarComponent implements OnInit {
     }
   }
 
-  cancel() {
-    this.router.navigate(['animal']);
-  }
 
   updateForm(animal) {
     this.form.patchValue({
@@ -64,4 +61,7 @@ export class AdicionarComponent implements OnInit {
     });
   }
 
+  cancel() {
+    this.router.navigate(['animal']);
+  }
 }
