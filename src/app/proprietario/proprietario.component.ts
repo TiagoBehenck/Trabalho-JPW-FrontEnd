@@ -13,6 +13,8 @@ export class ProprietarioComponent implements OnInit {
   displayedColumns: string[] = ['_id', 'nome', 'cpf', 'end', 'telefone', 'acao', 'adicionar'];
   dataSource = new MatTableDataSource<any>([]);
 
+  private readonly API = 'http://127.0.0.1:8080/api/proprietario/';
+
   public proprietario: Array<{
     _id: string;
     nome: string;
@@ -27,33 +29,34 @@ export class ProprietarioComponent implements OnInit {
     this.loadData();
   }
 
-  async loadData() {
-    this.proprietario = (await this.http.get("http://127.0.0.1:8080/api/proprietario").toPromise()) as any;
-    this.dataSource.data = this.proprietario;
-  }
-
   ngOnInit() {
     this.loadData();
    }
 
-  adicionar() {
-    this.router.navigate(['proprietario/adicionar']);
+  async loadData() {
+    this.proprietario = (await this.http.get(this.API).toPromise()) as any;
+    this.dataSource.data = this.proprietario;
   }
 
-  updateData(id: string) {
+   adicionar() {
+    this.router.navigate(['proprietario/adicionar']);
+    this.loadData();
+  }
+
+  // Atualizando as informações
+  async updateData(id: string) {
     this.router.navigate(['proprietario/atualizar', id]);
   }
 
   // Exclindo o proprietário
   async deleteData(id: string) {
-    this.http.delete("http://127.0.0.1:8080/api/proprietario/" + id).toPromise();
+    this.http.delete(this.API + id).toPromise();
     alert('Proprietário excluído com sucesso!');
     this.loadData();
   }
 
+  // Relatório
   report() {
-    window.open("http://127.0.0.1:8080/api/proprietario/report/relatorio", "_blank");
+    window.open(this.API + '/report/relatorio', "_blank");
   }
-
 }
-

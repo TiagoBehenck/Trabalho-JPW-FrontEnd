@@ -26,7 +26,7 @@ export class AdicionarComponent implements OnInit {
     this.route.params.subscribe(
     async (params: any) => {
         const id = params['id'];
-        console.log(id);
+        // console.log(id);
         this.animal = await (this.http.get("http://127.0.0.1:8080/api/animais/" + id).toPromise()) as any;
         console.log(this.animal);
         this.updateForm(this.animal);
@@ -49,7 +49,6 @@ export class AdicionarComponent implements OnInit {
       this.router.navigate(['animal']);
     }
   }
-
 
   updateForm(animal) {
     this.form.patchValue({

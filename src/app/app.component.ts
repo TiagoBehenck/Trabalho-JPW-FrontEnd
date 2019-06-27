@@ -29,8 +29,8 @@ export class AppComponent {
     }
   }
 
-  onEnter(value: string) {
-    // alert(value);
-    alert(this.http.get("http://127.0.0.1:8080/api/animais/" + value).toPromise());
+  onEnter(value: string, tab) {
+       alert(tab.index);
+    // alert(this.http.get("http://127.0.0.1:8080/api/animais/" + value).toPromise());
   }
 }

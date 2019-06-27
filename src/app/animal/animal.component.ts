@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-animal',
@@ -13,6 +13,8 @@ export class AnimalComponent implements OnInit {
   displayedColumns: string[] = ['_id', 'nome', 'raca', 'idade', 'dataNascimento', 'acao', 'adicionar'];
   dataSource = new MatTableDataSource<any>([]);
 
+  private readonly API = 'http://127.0.0.1:8080/api/animais/';
+
   public animal: Array<{
     _id: string;
     nome: string;
@@ -22,9 +24,16 @@ export class AnimalComponent implements OnInit {
   }> = [];
 
   constructor(private http: HttpClient,
-              private router: Router,
-              private route: ActivatedRoute) {
+              private router: Router) {  }
+
+  ngOnInit() {
     this.loadData();
+  }
+
+  // Carregar os dados
+  async loadData() {
+    this.animal = (await this.http.get(this.API).toPromise()) as any;
+    this.dataSource.data = this.animal;
   }
 
   // Adicionando um novo animal
@@ -33,31 +42,20 @@ export class AnimalComponent implements OnInit {
     this.loadData();
   }
 
-  // Carregar os dados
-  async loadData() {
-    this.animal = (await this.http.get("http://127.0.0.1:8080/api/animais").toPromise()) as any;
-    this.dataSource.data = this.animal;
-  }
-
   // Atualizando as informaçãoes
   async updateData(id: string) {
-    // RelativeTo rota relativa a qual URL, rota ativa no momento
     this.router.navigate(['animal/atualizar', id]);
   }
 
-  // Excluindo
+  // Excluindo o pet
   async deleteData(id: string) {
-    this.http.delete("http://127.0.0.1:8080/api/animais/" + id).toPromise();
+    this.http.delete(this.API + id).toPromise();
     alert('Animal excluído com sucesso!');
     this.loadData();
   }
 
-  ngOnInit() {
-    this.loadData();
-  }
-
+  // Relatório
   report() {
-    window.open("http://127.0.0.1:8080/api/animais/report/relatorio", "_blank");
+    window.open(this.API + '/report/relatorio', "_blank");
   }
-
 }
